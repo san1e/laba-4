@@ -55,15 +55,16 @@ namespace laba_4
             char replacement = '-';
             for (int i = 1; i < str.Length; i++)
             {
-
-                if (arr[i] == '+')
+                if (arr[i-1] >= 48 && arr[i-1] <= 57)
                 {
-                    if (arr[i - 1] % 2 != 0)
+                    if (arr[i] == '+')
                     {
-                        arr[i] = replacement;
+                        if (arr[i - 1] % 2 != 0)
+                        {
+                            arr[i] = replacement;
+                        }
                     }
                 }
-
             }
             str = new string(arr);
             return str;
@@ -72,17 +73,20 @@ namespace laba_4
         {
             StringBuilder str1 = new StringBuilder(str);
             char replacement = '-';
-            for (int i = 1; i < str.Length; i++)
-            {
-                if (str1[i] == '+')
+                for (int i = 1; i < str.Length; i++)
                 {
-                    if (str1[i - 1] % 2 != 0)
+                    if (str1[i - 1] >= 48 && str1[i - 1] <= 57)
                     {
-                        str1[i] = replacement;
+                        if (str1[i] == '+')
+                        {
+                            if (str1[i - 1] % 2 != 0)
+                            {
+                                str1[i] = replacement;
+                            }
+                        }
                     }
                 }
-
-            }
+            
             return str1;
         }
         static void Main(string[] args)
